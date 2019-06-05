@@ -1,0 +1,18 @@
+<div class="mx-5 my-5">
+  <div class="row  mx-5">
+    <div class="col-lg-4 border-box mx-5">
+      <button class="btn btn-info btn-sm pull-right my-3" (click)="addRecord()"><i class="fa fa-plus"></i></button>
+      <ul class="heroes">
+        <li *ngFor="let lstdata of lstContact " [class.selected]="lstdata === selected" (click)="onSelect(lstdata)">
+          <span class="badge">{{lstdata.short |uppercase }}</span> {{lstdata.name | titlecase}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-lg-6 border-box mx-5">
+      <div class=" mb-2">
+        <app-add-change-contact [selected]="selected" [lstContact]="lstContact">
+        </app-add-change-contact>
+      </div>
+    </div>
+  </div>
+</div>

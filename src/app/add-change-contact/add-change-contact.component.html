@@ -1,0 +1,82 @@
+<div class="border-box my-5">
+  <app-select-contact [selected]="selected"></app-select-contact>
+</div>
+<hr class="line">
+<div class="border-box my-5 ">
+  <div class="mx-5 my-5">
+    <form [formGroup]="contactForm">
+      <div *ngIf="selected">
+        <h6><span class="badge">{{selected.short | uppercase}}</span>{{selected.name | titlecase}} </h6>
+        <div class="row my-5">
+          <b> Name:</b>
+          <input type="text" class="form-control" formControlName="name">
+          <span class="text-danger"
+            *ngIf="contactForm.get('name').hasError('required') && contactForm.get('name').touched">
+            Name is required
+          </span>
+        </div>
+
+        <div class="row my-5">
+          <b>E-mail:</b>
+          <input type="email" class="form-control" formControlName="email">
+          <span class="text-danger"
+            *ngIf="contactForm.get('email').hasError('required') && contactForm.get('email').touched">
+            Mail is required
+          </span>
+          <span class="text-danger"
+            *ngIf="contactForm.get('email').hasError('email') && contactForm.get('email').touched ">
+            Enter valid mail
+          </span>
+        </div>
+
+        <div class="row my-5">
+          <b>Mobile No: </b>
+          <input type="text" class="form-control" formControlName="mono">
+          <span class="text-danger"
+            *ngIf="contactForm.get('mono').hasError('required') && contactForm.get('mono').touched ">
+            Mobile Number is required
+          </span>
+        </div>
+        <div class="row">
+          <button class="btn btn-info btn-sm mx-5" (click)="editRec(selected)"><i class="fa fa-edit"></i>&nbsp;
+            Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="deleteRec(selected)"><i class="fa fa-trash"></i>&nbsp;
+            Delete</button>
+        </div>
+      </div>
+      <div *ngIf="!selected">
+        <h6><span class="badge">NS</span>{{NoSelected}} </h6>
+        <div class="row my-5">
+          <b>Name:</b>
+          <input type="text" class="form-control" formControlName="name">
+          <span class="text-danger"
+            *ngIf="contactForm.get('name').hasError('required') && contactForm.get('name').touched ">
+            Name is required
+          </span>
+        </div>
+
+        <div class="row my-5">
+          <b>E-mail:</b>
+          <input type="email" class="form-control" formControlName="email">
+          <span class="text-danger"
+            *ngIf="contactForm.get('email').hasError('required') && contactForm.get('email').touched ">
+            Mail is required
+          </span>
+          <span class="text-danger"
+            *ngIf="contactForm.get('email').hasError('email') && contactForm.get('email').touched ">
+            Enter valid mail
+          </span>
+        </div>
+        <div class="row my-5">
+          <b>Mobile No:</b>
+          <input type="text" class="form-control" maxlength="10" formControlName="mono">
+          <span class="text-danger"
+            *ngIf="contactForm.get('mono').hasError('required') && contactForm.get('mono').touched ">
+            Mobile Number is required
+          </span>
+        </div>
+        <button class="btn btn-info btn-sm" (click)="addRecord()"><i class="fa fa-plus"></i>&nbsp; Add</button>
+      </div>
+    </form>
+  </div>
+</div>

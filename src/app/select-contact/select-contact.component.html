@@ -1,0 +1,9 @@
+<div class="mx-5 my-5">
+  <div *ngIf="selected">
+    <h6><span class="badge">{{selected.short | uppercase}}</span>{{selected.name | titlecase}} </h6>
+  </div>
+
+  <div *ngIf="!selected">
+    <h6> <span class="badge">NS</span>{{NoSelected}} </h6>
+  </div>
+</div>

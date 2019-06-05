@@ -1,0 +1,33 @@
+  .border-box{
+    border-style: double;
+    /* box-sizing: initial */
+  }
+  .heroes {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+  .heroes li {
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: 0.6em;
+    padding: .4em 0;
+    height: 2.6em;
+    border-radius: 20px;
+  }  
+  .heroes li.selected:hover {
+    background-color: #BBD8DC !important;
+    color: white;
+  }
+  .heroes li:hover {
+    color: white;
+    background-color: navy;
+    left: .1em;
+  }
+  
+  .changes{
+    margin-left: 580px;
+  }
