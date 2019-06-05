@@ -1,1 +1,1 @@
-# ContactList
+# angular-contact-list
