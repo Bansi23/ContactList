@@ -20,7 +20,7 @@ export class AddChangeContactComponent implements OnInit {
   set selected(val) {
     console.log('val', val)
     this._selected = val;
-    this.getRec(val)
+    this.getRec(val);
   }
 
   @Input() lstContact;
@@ -49,23 +49,23 @@ export class AddChangeContactComponent implements OnInit {
       } else {
         StudentForm.id = (new Date()).getTime();
         this.lstContact.push(StudentForm);
-        // this.lstContact.map(x => {
-        //   x.short = x.name
-        //   var spaceCount = (x.short.split(" ").length - 1);
-        //   if (spaceCount == 1) {
-        //     var matches = x.short.match(/\b(\w)/g); //["A"], ["B"]
-        //     x.short = matches.join('');
-        //   }
-        //   else if (spaceCount >= 2) {
-        //     let index = x.short.indexOf(" ");
-        //     let abc = x.short.charAt(index + 1);
-        //     x.short = x.short[0] + abc;
-        //   }
-        //   else {
-        //     let abc = x.short = x.short[0] + "" + x.short[1];
-        //     x.short = abc.trim();
-        //   }
-        // });
+        this.lstContact.map(x => {
+          x.short = x.name
+          var spaceCount = (x.short.split(" ").length - 1);
+          if (spaceCount == 1) {
+            var matches = x.short.match(/\b(\w)/g); //["A"], ["B"]
+            x.short = matches.join('');
+          }
+          else if (spaceCount >= 2) {
+            let index = x.short.indexOf(" ");
+            let abc = x.short.charAt(index + 1);
+            x.short = x.short[0] + abc;
+          }
+          else {
+            let abc = x.short = x.short[0] + "" + x.short[1];
+            x.short = abc.trim();
+          }
+        });
       }
       this.contactForm.reset();
     }
@@ -107,8 +107,6 @@ export class AddChangeContactComponent implements OnInit {
           x.short = abc.trim();
         }
       });
-      this.contactForm.reset();
-      this.selected = "";
     }
   }
 
